@@ -560,6 +560,12 @@ input[type="date"].form-control {
     color: #856404;
 }
 
+.error-message {
+    color: var(--danger-color);
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
 /* Smooth Scrolling */
 @media (prefers-reduced-motion: no-preference) {
     html {

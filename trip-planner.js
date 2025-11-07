@@ -54,18 +54,32 @@
             const selectedTrip = tripSelect.value;
             const selectedDate = dateInput.value;
 
+            // Clear any previous error messages
+            const existingErrors = document.querySelectorAll('.error-message');
+            existingErrors.forEach(err => err.remove());
+
             if (!selectedTrip) {
-                alert('Please select a trip route');
+                showError(tripSelect, 'Please select a trip route');
                 return;
             }
 
             if (!selectedDate) {
-                alert('Please select a date');
+                showError(dateInput, 'Please select a date');
                 return;
             }
 
             getTideInfo(selectedTrip, selectedDate);
         });
+
+        function showError(element, message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.textContent = message;
+            errorDiv.style.color = 'var(--danger-color)';
+            errorDiv.style.marginTop = '0.5rem';
+            errorDiv.style.fontSize = '0.9rem';
+            element.parentElement.appendChild(errorDiv);
+        }
 
         function getTideInfo(tripId, date) {
             const trip = tripLocations[tripId];
@@ -74,12 +88,20 @@
                 return;
             }
 
+            // Validate date format (YYYY-MM-DD)
+            const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+            if (!dateRegex.test(date)) {
+                console.error('Invalid date format:', date);
+                return;
+            }
+
             // Show loading state
             tideData.innerHTML = '<p class="loading">Loading tide and current information...</p>';
             tideResults.style.display = 'block';
 
-            // Format date for display
-            const dateObj = new Date(date + 'T00:00:00');
+            // Format date for display (using simple parsing to avoid timezone issues)
+            const [year, month, day] = date.split('-');
+            const dateObj = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
             const dateFormatted = dateObj.toLocaleDateString('en-US', { 
                 weekday: 'long', 
                 year: 'numeric', 
@@ -101,7 +123,7 @@
                     <div class="resource-link">
                         <strong>📊 NOAA Tide Predictions:</strong>
                         <p>View detailed tide predictions for this location</p>
-                        <a href="https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=${trip.noaaStation}&date=${date}" 
+                        <a href="https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=${encodeURIComponent(trip.noaaStation)}&date=${encodeURIComponent(date)}" 
                            target="_blank" 
                            rel="noopener noreferrer" 
                            class="btn btn-secondary btn-sm">
@@ -134,7 +156,7 @@
                     <div class="resource-link">
                         <strong>🌤️ NOAA Weather Forecast:</strong>
                         <p>Check weather conditions for your paddle date</p>
-                        <a href="https://forecast.weather.gov/MapClick.php?lat=${trip.lat}&lon=${trip.lon}" 
+                        <a href="https://forecast.weather.gov/MapClick.php?lat=${encodeURIComponent(trip.lat.toString())}&lon=${encodeURIComponent(trip.lon.toString())}" 
                            target="_blank" 
                            rel="noopener noreferrer" 
                            class="btn btn-secondary btn-sm">
