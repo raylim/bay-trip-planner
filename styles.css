@@ -431,6 +431,135 @@ footer a:hover {
     }
 }
 
+/* Interactive Trip Planner */
+.trip-selector {
+    background-color: var(--light-color);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+select.form-control {
+    cursor: pointer;
+    background-color: white;
+}
+
+input[type="date"].form-control {
+    cursor: pointer;
+}
+
+.tide-results {
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    border: 2px solid var(--secondary-color);
+}
+
+.tide-results h4 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.tide-data-display {
+    margin-top: 1rem;
+}
+
+.loading {
+    text-align: center;
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+.trip-info-header {
+    background-color: var(--light-color);
+    padding: 1.5rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+}
+
+.trip-info-header h5 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.trip-info-header p {
+    margin-bottom: 0.5rem;
+}
+
+.tide-links {
+    margin-top: 1.5rem;
+}
+
+.tide-links h5 {
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+}
+
+.resource-link {
+    background-color: #f9f9f9;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.resource-link strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.resource-link p {
+    margin-bottom: 0.75rem;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.safety-reminder {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #fff3cd;
+    border-left: 4px solid var(--warning-color);
+    border-radius: 5px;
+}
+
+.safety-reminder p {
+    margin: 0;
+    color: #856404;
+}
+
 /* Smooth Scrolling */
 @media (prefers-reduced-motion: no-preference) {
     html {

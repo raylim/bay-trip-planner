@@ -169,26 +169,41 @@
                     </div>
 
                     <div class="planner-tool">
-                        <h3>Use the BASK Trip Planner</h3>
-                        <p>The Bay Area Sea Kayakers (BASK) provides an excellent trip planning tool that shows tides and currents for various locations around the San Francisco Bay.</p>
+                        <h3>Plan Your Trip</h3>
+                        <p>Select a paddle route and date to view tide and current information for the launch site.</p>
                         
+                        <div class="trip-selector">
+                            <div class="form-group">
+                                <label for="trip-select"><strong>Select Trip:</strong></label>
+                                <select id="trip-select" class="form-control">
+                                    <option value="">Choose a paddle route...</option>
+                                    <option value="china-camp" data-location="China Camp" data-lat="38.0017" data-lon="-122.4869">China Camp to the Sisters</option>
+                                    <option value="point-richmond" data-location="Point Richmond" data-lat="37.9295" data-lon="-122.3814">Point Richmond to Brooks Island</option>
+                                    <option value="crissy-field" data-location="Crissy Field" data-lat="37.8054" data-lon="-122.4658">Crissy Field to The Ramp</option>
+                                    <option value="farallon" data-location="San Francisco Coast" data-lat="37.7749" data-lon="-122.4194">The Farallon Islands</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="trip-date"><strong>Select Date:</strong></label>
+                                <input type="date" id="trip-date" class="form-control">
+                            </div>
+
+                            <button id="get-tides-btn" class="btn btn-primary">Get Tide & Current Info</button>
+                        </div>
+
+                        <div id="tide-results" class="tide-results" style="display: none;">
+                            <h4>Tide & Current Information</h4>
+                            <div id="tide-data" class="tide-data-display"></div>
+                            <p class="small-text">Data links to NOAA and BASK resources</p>
+                        </div>
+
                         <div class="tool-link-box">
-                            <p><strong>Access the Trip Planner:</strong></p>
-                            <a href="https://www.bask.org/trip_planner/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                            <p><strong>Or use the BASK Trip Planner directly:</strong></p>
+                            <a href="https://www.bask.org/trip_planner/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                                 Open BASK Trip Planner
                             </a>
                             <p class="small-text">Opens in a new window</p>
-                        </div>
-
-                        <div class="tips">
-                            <h4>How to Use the Trip Planner:</h4>
-                            <ol>
-                                <li>Select your planned paddling date</li>
-                                <li>Choose the location/area in the bay</li>
-                                <li>Review tide heights and times</li>
-                                <li>Check current predictions</li>
-                                <li>Plan your launch and return times accordingly</li>
-                            </ol>
                         </div>
                     </div>
                 </div>
@@ -238,5 +253,7 @@
             <p>Always check current conditions and paddle within your skill level. Safety first!</p>
         </div>
     </footer>
+
+    <script src="trip-planner.js"></script>
 </body>
 </html>
