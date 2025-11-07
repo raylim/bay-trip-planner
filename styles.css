@@ -596,10 +596,20 @@ input[type="date"].form-control {
 /* Tide Charts */
 .tide-charts-section {
     margin: 2rem 0;
-    padding: 1.5rem;
+    padding: 2rem 5%;
     background-color: white;
-    border-radius: 8px;
-    border: 2px solid var(--secondary-color);
+    border-radius: 0;
+    border: none;
+    border-top: 2px solid var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    /* Break out of container to be full width */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: 100vw;
 }
 
 .tide-charts-section h5 {
