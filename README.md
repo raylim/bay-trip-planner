@@ -7,6 +7,7 @@ A comprehensive website for planning kayaking trips in the San Francisco Bay Are
 - **Initiating Trips Guide**: Learn how to properly plan and prepare for bay kayaking trips, including safety considerations and essential equipment
 - **Suggested Paddle Trips**: Explore recommended paddle routes from BASK's "10 Paddles Around the Bay" guide, ranging from beginner to expert level
 - **Trip Planner Integration**: Direct access to BASK's trip planner for checking tides and currents before your paddle
+- **Tide Plots**: Interactive tide prediction charts for both launch and destination sites, showing hourly tide heights throughout the day to help plan optimal departure and arrival times
 - **Safety Resources**: Important information about bay kayaking safety and additional resources
 
 ## Resources Used
