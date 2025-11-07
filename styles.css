@@ -593,6 +593,77 @@ input[type="date"].form-control {
     font-size: 0.9rem;
 }
 
+/* Tide Charts */
+.tide-charts-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 8px;
+    border: 2px solid var(--secondary-color);
+}
+
+.tide-charts-section h5 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.tide-charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.tide-chart-container {
+    background-color: var(--light-color);
+    padding: 1rem;
+    border-radius: 8px;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tide-chart-container svg {
+    max-width: 100%;
+    height: auto;
+}
+
+.chart-note {
+    font-size: 0.85rem;
+    color: #666;
+    font-style: italic;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.feature-note {
+    background-color: #e7f3ff;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    color: #1a3a52;
+}
+
+.error-text {
+    color: var(--danger-color);
+    font-weight: 500;
+    padding: 1rem;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .tide-charts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tide-chart-container {
+        height: 300px;
+    }
+}
+
 /* Smooth Scrolling */
 @media (prefers-reduced-motion: no-preference) {
     html {
