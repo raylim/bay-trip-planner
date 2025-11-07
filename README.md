@@ -5,7 +5,7 @@ A comprehensive website for planning kayaking trips in the San Francisco Bay Are
 ## Features
 
 - **Initiating Trips Guide**: Learn how to properly plan and prepare for bay kayaking trips, including safety considerations and essential equipment
-- **Paddle Selection**: Comprehensive guide to choosing the right paddle based on your needs, including length, blade design, and materials
+- **Suggested Paddle Trips**: Explore recommended paddle routes from BASK's "10 Paddles Around the Bay" guide, ranging from beginner to expert level
 - **Trip Planner Integration**: Direct access to BASK's trip planner for checking tides and currents before your paddle
 - **Safety Resources**: Important information about bay kayaking safety and additional resources
 
@@ -14,7 +14,7 @@ A comprehensive website for planning kayaking trips in the San Francisco Bay Are
 This website is based on resources from [Bay Area Sea Kayakers (BASK)](https://www.bask.org/):
 
 - [Initiating Trips Guide](https://www.bask.org/initiating-trips/)
-- [Paddle Selection Guide](https://www.bask.org/miscellaneous-articles/other6_paddles/)
+- [10 Paddles Around the Bay](https://www.bask.org/miscellaneous-articles/other6_paddles/)
 - [BASK Trip Planner](https://www.bask.org/trip_planner/)
 
 ## Usage
