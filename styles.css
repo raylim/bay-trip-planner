@@ -544,7 +544,6 @@ input[type="date"].form-control {
 
 .highlight-link {
     background: linear-gradient(135deg, #e7f3ff 0%, #d4e9ff 100%);
-    border-left: 4px solid var(--primary-color);
     border: 2px solid var(--primary-color);
 }
 
