@@ -168,9 +168,9 @@
             const heightRange = maxHeight - minHeight;
 
             // Chart dimensions
-            const width = 1000;
-            const height = 450;
-            const padding = { top: 50, right: 50, bottom: 80, left: 70 };
+            const width = 1400;
+            const height = 600;
+            const padding = { top: 60, right: 60, bottom: 100, left: 80 };
             const chartWidth = width - padding.left - padding.right;
             const chartHeight = height - padding.top - padding.bottom;
 

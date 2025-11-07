@@ -617,9 +617,9 @@ input[type="date"].form-control {
 
 .tide-chart-container {
     background-color: var(--light-color);
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: 8px;
-    min-height: 500px;
+    min-height: 650px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -660,7 +660,7 @@ input[type="date"].form-control {
     }
     
     .tide-chart-container {
-        min-height: 400px;
+        min-height: 500px;
     }
 }
 
