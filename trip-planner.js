@@ -127,12 +127,18 @@
         }
 
         function generateMockTideData(date) {
+            // Constants for mock tide simulation
+            const MEAN_TIDE_HEIGHT = 4.0; // feet
+            const TIDE_AMPLITUDE = 2.5;   // feet
+            const TIDES_PER_DAY = 2;      // semi-diurnal pattern
+            const PHASE_SHIFT = Math.PI / 4;
+            
             // Generate realistic-looking tide data for demonstration
             const predictions = [];
             for (let hour = 0; hour < 24; hour++) {
                 // Simulate tidal pattern with sinusoidal waves
                 // Two tides per day (semi-diurnal)
-                const height = 4.0 + 2.5 * Math.sin((hour / 24) * 4 * Math.PI + Math.PI/4);
+                const height = MEAN_TIDE_HEIGHT + TIDE_AMPLITUDE * Math.sin((hour / 24) * (TIDES_PER_DAY * 2) * Math.PI + PHASE_SHIFT);
                 const time = `${date} ${hour.toString().padStart(2, '0')}:00`;
                 predictions.push({
                     t: time,
@@ -367,15 +373,21 @@
                 if (launchData && launchData.predictions) {
                     createTideChart('launch-tide-chart', launchData, trip.launchSite);
                 } else {
-                    document.getElementById('launch-tide-chart').parentElement.innerHTML = 
-                        '<p class="error-text">Unable to load tide data for launch site. Please check NOAA website.</p>';
+                    const launchElement = document.getElementById('launch-tide-chart');
+                    if (launchElement && launchElement.parentElement) {
+                        launchElement.parentElement.innerHTML = 
+                            '<p class="error-text">Unable to load tide data for launch site. Please check NOAA website.</p>';
+                    }
                 }
 
                 if (destData && destData.predictions) {
                     createTideChart('dest-tide-chart', destData, trip.destination);
                 } else {
-                    document.getElementById('dest-tide-chart').parentElement.innerHTML = 
-                        '<p class="error-text">Unable to load tide data for destination. Please check NOAA website.</p>';
+                    const destElement = document.getElementById('dest-tide-chart');
+                    if (destElement && destElement.parentElement) {
+                        destElement.parentElement.innerHTML = 
+                            '<p class="error-text">Unable to load tide data for destination. Please check NOAA website.</p>';
+                    }
                 }
             } catch (error) {
                 console.error('Error loading tide charts:', error);
