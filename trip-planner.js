@@ -6,31 +6,51 @@
     const tripLocations = {
         'china-camp': {
             name: 'China Camp to the Sisters',
-            location: 'China Camp, San Pablo Bay',
-            noaaStation: '9415102', // Point San Pedro
-            lat: 38.0017,
-            lon: -122.4869
+            launchSite: 'China Camp State Park',
+            destination: 'The Sister Islands',
+            launchNoaaStation: '9415102', // Point San Pedro
+            destNoaaStation: '9415102', // Point San Pedro (same area)
+            launchLat: 38.0017,
+            launchLon: -122.4869,
+            destLat: 38.0350,
+            destLon: -122.4450,
+            distance: '3 miles round trip'
         },
         'point-richmond': {
             name: 'Point Richmond to Brooks Island',
-            location: 'Point Richmond',
-            noaaStation: '9414863', // Richmond
-            lat: 37.9295,
-            lon: -122.3814
+            launchSite: 'Point Richmond',
+            destination: 'Brooks Island',
+            launchNoaaStation: '9414863', // Richmond
+            destNoaaStation: '9414863', // Richmond (same area)
+            launchLat: 37.9295,
+            launchLon: -122.3814,
+            destLat: 37.9608,
+            destLon: -122.3975,
+            distance: '5.5 miles round trip'
         },
         'crissy-field': {
             name: 'Crissy Field to The Ramp',
-            location: 'Crissy Field, San Francisco',
-            noaaStation: '9414290', // San Francisco
-            lat: 37.8054,
-            lon: -122.4658
+            launchSite: 'Crissy Field',
+            destination: 'The Ramp (China Basin)',
+            launchNoaaStation: '9414290', // San Francisco
+            destNoaaStation: '9414290', // San Francisco (same station)
+            launchLat: 37.8054,
+            launchLon: -122.4658,
+            destLat: 37.7697,
+            destLon: -122.3892,
+            distance: '7 miles one way'
         },
         'farallon': {
             name: 'The Farallon Islands',
-            location: 'San Francisco Coast',
-            noaaStation: '9414290', // San Francisco (closest)
-            lat: 37.7749,
-            lon: -122.4194
+            launchSite: 'San Francisco Coast',
+            destination: 'Farallon Islands',
+            launchNoaaStation: '9414290', // San Francisco
+            destNoaaStation: '9414290', // San Francisco (closest)
+            launchLat: 37.7749,
+            launchLon: -122.4194,
+            destLat: 37.6983,
+            destLon: -123.0017,
+            distance: '30 miles round trip'
         }
     };
 
@@ -113,50 +133,63 @@
             const html = `
                 <div class="trip-info-header">
                     <h5>${trip.name}</h5>
-                    <p><strong>Launch Site:</strong> ${trip.location}</p>
+                    <p><strong>Route:</strong> ${trip.launchSite} → ${trip.destination}</p>
+                    <p><strong>Distance:</strong> ${trip.distance}</p>
                     <p><strong>Date:</strong> ${dateFormatted}</p>
                 </div>
 
                 <div class="tide-links">
-                    <h5>Tide & Current Resources:</h5>
+                    <h5>Route Conditions & Planning:</h5>
                     
+                    <div class="resource-link highlight-link">
+                        <strong>🗺️ BASK Trip Planner - View Full Route:</strong>
+                        <p>Interactive map showing tides, currents along your route, and conditions at destination</p>
+                        <a href="https://www.bask.org/trip_planner/6.64/#date=${encodeURIComponent(date)}&lat=${encodeURIComponent(trip.launchLat)}&lon=${encodeURIComponent(trip.launchLon)}&zoom=12" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="btn btn-primary btn-sm">
+                            Open Interactive Route Planner →
+                        </a>
+                        <p class="small-hint">Shows currents along route and tides at both launch and destination points</p>
+                    </div>
+
                     <div class="resource-link">
-                        <strong>📊 NOAA Tide Predictions:</strong>
-                        <p>View detailed tide predictions for this location</p>
-                        <a href="https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=${encodeURIComponent(trip.noaaStation)}&date=${encodeURIComponent(date)}" 
+                        <strong>📊 Tides at Launch Site (${trip.launchSite}):</strong>
+                        <p>View tide predictions for your launch location</p>
+                        <a href="https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=${encodeURIComponent(trip.launchNoaaStation)}&date=${encodeURIComponent(date)}" 
                            target="_blank" 
                            rel="noopener noreferrer" 
                            class="btn btn-secondary btn-sm">
-                            View NOAA Tides →
+                            View Launch Tides →
+                        </a>
+                    </div>
+
+                    <div class="resource-link">
+                        <strong>📊 Tides at Destination (${trip.destination}):</strong>
+                        <p>View tide predictions for your destination</p>
+                        <a href="https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=${encodeURIComponent(trip.destNoaaStation)}&date=${encodeURIComponent(date)}" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="btn btn-secondary btn-sm">
+                            View Destination Tides →
                         </a>
                     </div>
 
                     <div class="resource-link">
                         <strong>🌊 NOAA Current Predictions:</strong>
-                        <p>Check current speeds and directions for the area</p>
+                        <p>Check current speeds and directions along your route</p>
                         <a href="https://tidesandcurrents.noaa.gov/map/index.html?type=CurrentPredictions&region=California" 
                            target="_blank" 
                            rel="noopener noreferrer" 
                            class="btn btn-secondary btn-sm">
-                            View Current Predictions →
+                            View Current Map →
                         </a>
                     </div>
 
                     <div class="resource-link">
-                        <strong>🗺️ BASK Trip Planner:</strong>
-                        <p>Use BASK's comprehensive trip planning tool</p>
-                        <a href="https://www.bask.org/trip_planner/" 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           class="btn btn-secondary btn-sm">
-                            Open BASK Planner →
-                        </a>
-                    </div>
-
-                    <div class="resource-link">
-                        <strong>🌤️ NOAA Weather Forecast:</strong>
-                        <p>Check weather conditions for your paddle date</p>
-                        <a href="https://forecast.weather.gov/MapClick.php?lat=${encodeURIComponent(trip.lat)}&lon=${encodeURIComponent(trip.lon)}" 
+                        <strong>🌤️ Weather Forecast:</strong>
+                        <p>Check weather conditions for launch and route</p>
+                        <a href="https://forecast.weather.gov/MapClick.php?lat=${encodeURIComponent(trip.launchLat)}&lon=${encodeURIComponent(trip.launchLon)}" 
                            target="_blank" 
                            rel="noopener noreferrer" 
                            class="btn btn-secondary btn-sm">
@@ -166,7 +199,13 @@
                 </div>
 
                 <div class="safety-reminder">
-                    <p><strong>⚠️ Remember:</strong> Always verify conditions before launching. Tide and current information should be confirmed from multiple sources, and weather can change rapidly on the bay.</p>
+                    <p><strong>⚠️ Planning Tips:</strong></p>
+                    <ul>
+                        <li>Use the <strong>BASK Trip Planner</strong> (link above) to see interactive current flows along your entire route</li>
+                        <li>Check both launch and destination tides to plan optimal departure/arrival times</li>
+                        <li>Watch for current predictions - strong currents can occur at constrictions and channels</li>
+                        <li>Always verify conditions from multiple sources before launching</li>
+                    </ul>
                 </div>
             `;
 
