@@ -156,7 +156,7 @@
                     <div class="resource-link">
                         <strong>🌤️ NOAA Weather Forecast:</strong>
                         <p>Check weather conditions for your paddle date</p>
-                        <a href="https://forecast.weather.gov/MapClick.php?lat=${encodeURIComponent(trip.lat.toString())}&lon=${encodeURIComponent(trip.lon.toString())}" 
+                        <a href="https://forecast.weather.gov/MapClick.php?lat=${encodeURIComponent(trip.lat)}&lon=${encodeURIComponent(trip.lon)}" 
                            target="_blank" 
                            rel="noopener noreferrer" 
                            class="btn btn-secondary btn-sm">
