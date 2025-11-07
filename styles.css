@@ -112,8 +112,13 @@ header h1 {
 
 .btn-primary:hover {
     background-color: #e55a2a;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
 }
 
 .btn-secondary {
@@ -124,7 +129,12 @@ header h1 {
 
 .btn-secondary:hover {
     background-color: var(--light-color);
-    transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .btn-secondary:hover {
+        transform: translateY(-2px);
+    }
 }
 
 /* Sections */
@@ -173,9 +183,11 @@ header h1 {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+@media (prefers-reduced-motion: no-preference) {
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
 }
 
 .card h3 {
@@ -420,8 +432,10 @@ footer a:hover {
 }
 
 /* Smooth Scrolling */
-html {
-    scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
 }
 
 /* Link Styles */
